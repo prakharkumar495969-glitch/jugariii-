@@ -4,5 +4,6 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // Cloudflare Pages ke liye final setting
+  // 🎯 CRITICAL FIX: Base path ko Cloudflare pages ke liye './' par set karein
+  base: './', 
 });
