@@ -1,19 +1,47 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JUGARIII Store 🛍️</title>
-    <link rel="icon" type="image/png" href="/images/logo.png" />
-
-    <!-- 🧾 Razorpay Checkout Script -->
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
-    <!-- Tailwind CDN (optional for styling) -->
+    <title>JUGARIII — Game Store</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              pink: {
+                50: '#fdf2f8',
+                100: '#fce7f3',
+                200: '#fbcfe8',
+                300: '#f9a8d4',
+                400: '#f472b6',
+                500: '#ec4899',
+                600: '#db2777', // Main Pink Color
+                700: '#be185d',
+                800: '#9d174d',
+                900: '#831843',
+                950: '#500724',
+              }
+            }
+          }
+        }
+      }
+    </script>
   </head>
-  <body class="bg-gray-100">
+  <body>
     <div id="root"></div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
+
+
