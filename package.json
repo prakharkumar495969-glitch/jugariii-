@@ -1,3 +1,4 @@
+// package.json
 {
   "name": "jugariii-store",
   "version": "0.1.0",
@@ -12,6 +13,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    // 👇🏽 Yeh line add karein
+    "@vitejs/plugin-react": "^4.2.1",
     "vite": "^5.0.0"
   }
 }
