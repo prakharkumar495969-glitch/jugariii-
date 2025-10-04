@@ -1,9 +1,13 @@
-// vite.config.js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // 🎯 CRITICAL FIX: Jab index.html mein /src/main.jsx ho, toh yahaan / lagana zaroori hai.
-  base: '/', 
+  server: {
+    port: 5173,
+  },
+  build: {
+    outDir: "dist",
+  },
 });
