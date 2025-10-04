@@ -4,11 +4,7 @@ JUGARIII Store - Single File App (src/App.jsx)
 Notes:
 - FINAL DESIGN: Pink Theme, Swiper Slider, All Images Integrated.
 - LATEST UPDATE: Full Checkout, COD (₹70 Fee), Razorpay, and FORM data sent to FORMSPREE.
-
-- CONFIGURATION CHECK:
-  - RAZORPAY TEST KEY: rzp_test_RPHdAAsUxsoqhz
-  - COD FEE: 70
-  - FORMSPREE ENDPOINT: https://formspree.io/f/xjkarnaq (Aapka Address Data Yahin Aayega)
+- IMAGE FIX: All images are using Direct URLs (ImgBB) to fix path issues.
 */
 
 import React, { useState, useEffect } from "react";
@@ -19,12 +15,14 @@ const SAMPLE_PRODUCTS = [
     id: "p1",
     title: "Couple Edition: Romantic Dares & Truths",
     price: 299,
+    regularPrice: 399, // <--- New Regular Price for Strike-through
     desc: "Ignite intimacy and romance with cards tailored for couples. Play levels from playful to flirty to steamy. The perfect way to explore a deeper connection and enjoy romantic challenges together.",
-    img: "/images/1000119681.png",
+    // --- UPDATED URLs (Couples Edition) ---
+    img: "https://i.ibb.co/Q75y4Q62/1759511340714.png", 
     gallery: [ 
-        "/images/1000119681.png",
-        "/images/1000119689.jpg",
-        "/images/1000119695.png",
+        "https://i.ibb.co/Q75y4Q62/1759511340714.png",
+        "https://i.ibb.co/Xk4DFpLP/image-1.jpg",
+        "https://i.ibb.co/kswyqYdk/image-9.png",
     ],
     qty: 50,
   },
@@ -32,12 +30,15 @@ const SAMPLE_PRODUCTS = [
     id: "p2",
     title: "Friends Edition: Truth, Dare & Situation Cards",
     price: 249,
+    regularPrice: 349, // <--- New Regular Price for Strike-through
     desc: "Unleash fun with crazy challenges, wild dares, and spicy truths—perfect for parties, hangouts and sleepovers. This pack is designed to reveal secrets and create unforgettable, hilarious memories.",
-    img: "/images/1000119692.png",
+    // --- UPDATED URLs (Friend Edition) ---
+    img: "https://i.ibb.co/fVCp0KK0/image-6.png",
     gallery: [
-        "/images/1000119692.png",
-        "/images/1000119690.png",
-        "/images/1000119691.png",
+        "https://i.ibb.co/fVCp0KK0/image-6.png",
+        "https://i.ibb.co/rS7Yc38/image-7.png",
+        "https://i.ibb.co/39DT7J0s/image-8.png",
+        "https://i.ibb.co/fVF5WWTX/image-5.png"
     ],
     qty: 100,
   },
@@ -45,12 +46,14 @@ const SAMPLE_PRODUCTS = [
     id: "p3",
     title: "Office Anarchy: Dare & Situation Edition",
     price: 349,
+    regularPrice: 449, // <--- New Regular Price for Strike-through
     desc: "Workplace-inspired dares and situations for office parties, icebreakers and team building—fun but HR-safe. Turn dull meetings into engaging, laughter-filled sessions with your colleagues.",
-    img: "/images/1000119735.png",
+    // --- UPDATED URLs (Office Anarchy) ---
+    img: "https://i.ibb.co/mFPLTwTx/image-14.png",
     gallery: [
-        "/images/1000119735.png",
-        "/images/1000119739.png",
-        "/images/1000119737.png",
+        "https://i.ibb.co/mFPLTwTx/image-14.png",
+        "https://i.ibb.co/v4DBj0Xw/image-10.png",
+        "https://i.ibb.co/MDs853pc/image-20.png",
     ],
     qty: 75,
   },
@@ -60,18 +63,20 @@ const SAMPLE_PRODUCTS = [
 // --- COD, PAYMENT, & DATA CONFIGURATION ---
 const COD_FEE = 70;
 const RAZORPAY_KEY_ID = "rzp_test_RPHdAAsUxsoqhz"; 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjkarnaq"; // <--- YOUR INTEGRATED FORM ENDPOINT
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjkarnaq"; 
 // --- END: CONFIGURATION ---
 
 function currencyINR(n) {
   return `₹${Number(n).toLocaleString("en-IN", { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
 }
 
+// --- UPDATED BANNER URLs ---
 const BANNER_SLIDES = [
-    { img: "/images/1000119742.png", headline: "Truth and Dare: Friends Edition – Spill the Beans!" },
-    { img: "/images/1000119679.png", headline: "Couple Edition – Spice Up Your Date Night!" },
-    { img: "/images/1000119744.png", headline: "Office Anarchy – Climb the Corporate Ladder!" },
+    { img: "https://i.ibb.co/Y4nqRMg6/image-18.png", headline: "Friends Edition – Truth, Dare & Situation Cards!" }, // Friend Edition
+    { img: "https://i.ibb.co/CKYRvy6v/image.jpg", headline: "Couple Edition – Spice Up Your Date Night!" }, // Couples Edition
+    { img: "https://i.ibb.co/d0S1dqFc/image-22.png", headline: "Office Anarchy – Climb the Corporate Ladder!" }, // Office Anarchy
 ];
+// --- END: BANNER CONFIGURATION ---
 
 
 export default function App() {
@@ -92,6 +97,10 @@ export default function App() {
   });
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [modalImage, setModalImage] = useState(null);
+
+  // --- LOGO URL ---
+  const LOGO_URL = "https://i.ibb.co/F46pFgrn/Screenshot-2025-10-04-09-46-05-39-40deb401b9ffe8e1df2f1cc5ba480b12.jpg";
+
 
   useEffect(() => {
     const saved = localStorage.getItem("jugariii_cart_v1");
@@ -311,8 +320,9 @@ export default function App() {
       <header className="bg-white shadow-sm sticky top-0 z-20">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/images/1000119732.jpg" alt="JUGARIII Logo" className="w-10 h-10 rounded-md object-cover" />
-            <h1 className="text-xl font-semibold">JUGARIII — Shop</h1>
+            {/* --- UPDATED LOGO URL --- */}
+            <img src={LOGO_URL} alt="JUGARIII Logo" className="w-10 h-10 rounded-md object-cover" />
+            <h1 className="text-xl font-semibold">JUGARIII</h1> {/* --- Updated Name --- */}
           </div>
           <nav className="flex items-center gap-4">
             <button onClick={() => setShowCart((s) => !s)} className="relative p-1">
@@ -320,7 +330,7 @@ export default function App() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 5m5-5v5m6-5v5m-9 0h8" />
               </svg>
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{cartCount}</span>
+                <span className="absolute -top-1 -right-1 bg-pink-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">{cartCount}</span>
               )}
             </button>
           </nav>
@@ -370,7 +380,11 @@ export default function App() {
                   <h3 className="text-xl font-bold mb-2">{p.title}</h3>
                   <p className="text-sm text-slate-600">{p.desc.substring(0, 80)}...</p>
                   <div className="mt-4 flex items-center justify-between">
-                    <div className="text-xl font-extrabold text-pink-600">{currencyINR(p.price)}</div>
+                    <div className="flex items-center gap-2">
+                        {/* --- Strike Through Price --- */}
+                        {p.regularPrice && <div className="text-base text-slate-400 line-through">{currencyINR(p.regularPrice)}</div>}
+                        <div className="text-xl font-extrabold text-pink-600">{currencyINR(p.price)}</div>
+                    </div>
                     <div className="flex items-center gap-3">
                       <button onClick={() => setSelected(p)} className="text-sm px-4 py-2 border border-slate-300 rounded-lg hover:bg-slate-50 transition">View</button>
                       <button onClick={() => addToCart(p.id)} className="text-sm px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg shadow-md transition">Add to Cart</button>
@@ -384,14 +398,11 @@ export default function App() {
 
         <section id="why-shop" className="mt-16">
           <h2 className="text-xl sm:text-2xl font-semibold mb-6 text-center">Why shop with JUGARIII?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* --- Removed Easy Returns section --- */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto"> 
             <div className="bg-white p-6 rounded-xl shadow-md text-center border-t-4 border-pink-600">
                 <div className="text-xl font-bold mb-2">🚚 Fast Shipping</div>
                 <div className="text-slate-600">Delivery across India in 3-5 days.</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md text-center border-t-4 border-pink-600">
-                <div className="text-xl font-bold mb-2">🔄 Easy Returns</div>
-                <div className="text-slate-600">Hassle-free 7-day return policy.</div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md text-center border-t-4 border-pink-600">
                 <div className="text-xl font-bold mb-2">🔒 Secure Checkout</div>
@@ -401,7 +412,7 @@ export default function App() {
         </section>
       </main>
 
-      {/* Cart drawer */}
+      {/* Cart drawer (Checkout logic remains the same) */}
       <div className={`fixed right-0 top-0 h-full w-full sm:w-96 bg-white shadow-lg transform transition-transform ${showCart ? "translate-x-0" : "translate-x-full"} z-40`}>
         <div className="p-4 border-b flex items-center justify-between">
           <h3 className="text-lg font-semibold">Your Cart ({cartCount} Items)</h3>
@@ -461,7 +472,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Price Breakdown */}
+      {/* Price Breakdown */}
               <div className="space-y-1 text-sm border-b pb-2">
                 <div className="flex justify-between"><span>Subtotal:</span><span className="font-medium">{currencyINR(cartBaseTotal())}</span></div>
                 {checkout.paymentMethod === 'cod' && (
@@ -544,7 +555,10 @@ export default function App() {
                 {/* Details Column */}
                 <div className="md:border-l md:pl-6 pt-4 md:pt-0">
                     <h3 className="text-2xl sm:text-3xl font-bold text-pink-600">{selected.title}</h3>
-                    <div className="mt-2 text-2xl font-extrabold">{currencyINR(selected.price)}</div>
+                    <div className="mt-2 flex items-center gap-3">
+                        {selected.regularPrice && <div className="text-xl font-medium text-slate-400 line-through">{currencyINR(selected.regularPrice)}</div>}
+                        <div className="text-2xl font-extrabold">{currencyINR(selected.price)}</div>
+                    </div>
                     
                     <p className="mt-4 text-slate-700 leading-relaxed border-t pt-4">{selected.desc}</p>
 
@@ -580,4 +594,4 @@ export default function App() {
       </footer>
     </div>
   );
-}
+                      }
