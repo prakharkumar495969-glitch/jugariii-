@@ -14,8 +14,8 @@ const SAMPLE_PRODUCTS = [
   {
     id: "p1",
     title: "Couple Edition: Romantic Dares & Truths",
-    price: 299,
-    regularPrice: 399, // <--- New Regular Price for Strike-through
+    price: 899,
+    regularPrice: 1199, // <--- New Regular Price for Strike-through
     desc: "Ignite intimacy and romance with cards tailored for couples. Play levels from playful to flirty to steamy. The perfect way to explore a deeper connection and enjoy romantic challenges together.",
     // --- UPDATED URLs (Couples Edition) ---
     img: "https://i.ibb.co/Q75y4Q62/1759511340714.png", 
@@ -29,8 +29,8 @@ const SAMPLE_PRODUCTS = [
   {
     id: "p2",
     title: "Friends Edition: Truth, Dare & Situation Cards",
-    price: 249,
-    regularPrice: 349, // <--- New Regular Price for Strike-through
+    price: 499,
+    regularPrice: 999, // <--- New Regular Price for Strike-through
     desc: "Unleash fun with crazy challenges, wild dares, and spicy truths—perfect for parties, hangouts and sleepovers. This pack is designed to reveal secrets and create unforgettable, hilarious memories.",
     // --- UPDATED URLs (Friend Edition) ---
     img: "https://i.ibb.co/fVCp0KK0/image-6.png",
@@ -45,8 +45,8 @@ const SAMPLE_PRODUCTS = [
   {
     id: "p3",
     title: "Office Anarchy: Dare & Situation Edition",
-    price: 349,
-    regularPrice: 449, // <--- New Regular Price for Strike-through
+    price: 499,
+    regularPrice: 799, // <--- New Regular Price for Strike-through
     desc: "Workplace-inspired dares and situations for office parties, icebreakers and team building—fun but HR-safe. Turn dull meetings into engaging, laughter-filled sessions with your colleagues.",
     // --- UPDATED URLs (Office Anarchy) ---
     img: "https://i.ibb.co/mFPLTwTx/image-14.png",
