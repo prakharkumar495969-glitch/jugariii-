@@ -4,5 +4,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // Deployment ke liye zaroori setting
+  // Yeh do lines zaroori hain
+  base: '/', // Base path ko reset karein
+  root: '.', // Root directory ko current folder par set karein
 });
