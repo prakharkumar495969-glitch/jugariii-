@@ -99,7 +99,7 @@ const COD_FEE = 70;
 const RAZORPAY_KEY_ID = "rzp_test_RPHdAAsUxsoqhz";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjkarnaq";
 const INSTAGRAM_LINK = "https://www.instagram.com/jugariii?igsh=a3QxdmhjemdhM3Iy";
-const NEW_LOGO_URL = "https://i.ibb.co/zW6FvkcB/image-13.png"; // New Logo URL
+const NEW_LOGO_URL = "https://i.ibb.co/bjKQG1m6/IMG-20251005-125434.png"; // New Logo URL
 // --- END: CONFIGURATION ---
 
 function currencyINR(n) {
